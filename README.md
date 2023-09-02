@@ -11,9 +11,8 @@ If you would like to contribute to this project with suggestions or feedback the
 Example Videos
 These YouTube short videos were made by AI Music Experiment and made use of early versions of the nodes.
 
-Cat Morph
-
-Wolf Girl
+[Cat Morph](https://www.youtube.com/shorts/kiSO-8i4RZ4)
+[Wolf Girl](https://www.youtube.com/shorts/bDWL5GIbmvs)
 
 ## Demo Workflows
 Four demo workflows are included in the download. These are designed to demonstrate how the nodes function. They are not full animation workflows. Full template workflows will be published when the project nears completion.
@@ -25,11 +24,11 @@ Comfyroll Custom Nodes
 
 the CR Animation nodes were orginally based on nodes in this pack
 
-Fizz Nodes
+[Fizz Nodes](https://github.com/FizzleDorf/ComfyUI_FizzNodes)
 
 for the Prompt Scheduler
 
-MTB
+[MTB](https://github.com/melMass/comfy_mtb)
 
 for the Animation Controller and several other nodes
 
