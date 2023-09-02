@@ -5,7 +5,14 @@ These nodes include some features similar to Deforum, and also some new ideas.
 
 If you would like to contribute to this project with suggestions or feedback then please DM me on the AI Revolution discord, add feature requests on Gtithub, or leave a comment below.
 
-Example Videos
+##CivitAI Posts
+[ComfyUI - CR Animation Nodes](https://civitai.com/models/137333/comfyui-cr-animation-nodes)
+
+[ComfyUI - CR Animation Nodes - Demo Workflows](https://civitai.com/articles/2001/comfyui-guide-to-cr-animation-nodes)
+
+[ComfyUI - Guide to CR Animation Nodes](https://civitai.com/articles/2001/comfyui-guide-to-cr-animation-nodes)
+
+##Example Videos
 These YouTube short videos were made by AI Music Experiment and made use of early versions of the nodes.
 
 [Cat Morph](https://www.youtube.com/shorts/kiSO-8i4RZ4)
@@ -86,9 +93,9 @@ CR Text List To String
 CR Current Frame
 
 # Overview of New Nodes
-Please see this article for a guide to the new nodes
+Please see this WIP CivitAIarticle for a guide to the new nodes
 
-CR Animation Nodes Guide
+[CR Animation Nodes Guide](https://civitai.com/articles/2001/comfyui-guide-to-cr-animation-nodes)
 
 # Troubleshooting
 A troubleshooting article will be added soon
