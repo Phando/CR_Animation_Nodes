@@ -11,7 +11,7 @@ If you would like to contribute to this project with suggestions or feedback the
 [ComfyUI - CR Animation Nodes](https://civitai.com/models/137333/comfyui-cr-animation-nodes)
 
 ## Example Videos
-These YouTube short videos were made by AI Music Experiment and made use of early versions of the nodes.
+These YouTube short videos were made by [AI Music Experiment](https://www.youtube.com/channel/UCypaKOXWzzTxDvr3jWlfD6g) and made use of early versions of the nodes.
 
 [Cat Morph](https://www.youtube.com/shorts/kiSO-8i4RZ4)
 
