@@ -13,7 +13,7 @@ These YouTube short videos were made by AI Music Experiment and made use of earl
 [Wolf Girl](https://www.youtube.com/shorts/bDWL5GIbmvs)
 
 ## Demo Workflows
-Four demo workflows are included in the download. These are designed to demonstrate how the nodes function. They are not full animation workflows. Full template workflows will be published when the project nears completion.
+Demo workflows will be available on CivitAI. These are designed to demonstrate how the nodes function. They are not full animation workflows. Full template workflows will be published when the project nears completion.
 
 ## Recommended Downloads
 The following node packs are recommended for building workflows using these nodes:
