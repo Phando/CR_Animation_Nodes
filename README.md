@@ -3,7 +3,9 @@ A comprehensive suite of nodes to enhance your animations
 
 These nodes include some features similar to Deforum, and also some new ideas.
 
-If you would like to contribute to this project with suggestions or feedback then please DM me on the AI Revolution discord, add feature requests on Gtithub, or leave a comment below.
+This is the first drop of 20 nodes. A further 35 nodes are currently in development. The next drop will include keyframe level schedulers.
+
+If you would like to contribute to this project with suggestions or feedback then please DM me on the AI Revolution discord, or add issues or feature requests here on Github.
 
 ## CivitAI Post
 [ComfyUI - CR Animation Nodes](https://civitai.com/models/137333/comfyui-cr-animation-nodes)
@@ -19,6 +21,8 @@ These YouTube short videos were made by AI Music Experiment and made use of earl
 Demo workflows will be available on CivitAI. These are designed to demonstrate how the nodes function. They are not full animation workflows. Full template workflows will be published when the project nears completion.
 
 [ComfyUI - CR Animation Nodes - Demo Workflows](https://civitai.com/models/138947/comfyui-cr-animation-nodes-demo-workflows)
+
+![Cyclers_04](https://github.com/RockOfFire/CR_Animation_Nodes/assets/42118269/0d704325-7055-40ae-9a45-00a9a2db86e7)
 
 ## Recommended Downloads
 The following node packs are recommended for building workflows using these nodes:
