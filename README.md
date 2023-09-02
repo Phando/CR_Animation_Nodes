@@ -12,6 +12,7 @@ Example Videos
 These YouTube short videos were made by AI Music Experiment and made use of early versions of the nodes.
 
 [Cat Morph](https://www.youtube.com/shorts/kiSO-8i4RZ4)
+
 [Wolf Girl](https://www.youtube.com/shorts/bDWL5GIbmvs)
 
 ## Demo Workflows
