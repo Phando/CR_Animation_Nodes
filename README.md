@@ -1,9 +1,6 @@
 # CR Animation Nodes
 A comprehensive suite of nodes to enhance your animations
 
-CR Animation Nodes
-A comprehensive suite of nodes to enhance your animations.
-
 These nodes include some features similar to Deforum, and also some new ideas.
 
 If you would like to contribute to this project with suggestions or feedback then please DM me on the AI Revolution discord, add feature requests on Gtithub, or leave a comment below.
