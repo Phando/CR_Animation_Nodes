@@ -97,3 +97,11 @@ Please see this WIP CivitAIarticle for a guide to the new nodes
 
 # Troubleshooting
 A troubleshooting article will be added soon
+
+# Node Images
+
+![prompt list](https://github.com/RockOfFire/CR_Animation_Nodes/assets/42118269/e40a907e-268a-4b73-9c78-f2f1a15dc37d)
+
+![animation stack](https://github.com/RockOfFire/CR_Animation_Nodes/assets/42118269/eba4ff74-0223-4021-aed7-c8da63ece300)
+
+
