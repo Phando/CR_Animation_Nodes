@@ -1,6 +1,6 @@
 #---------------------------------------------------------------------------------------------------------------------#
-# CR Animation Nodes by RockOfFire and Akatsuzi                                         
-# for ComfyUI                                    https://github.com/comfyanonymous/ComfyUI
+# CR Animation Nodes by RockOfFire and Akatsuzi     https://github.com/RockOfFire/CR-Animation-Nodes                                       
+# for ComfyUI                                       https://github.com/comfyanonymous/ComfyUI
 #---------------------------------------------------------------------------------------------------------------------#
 
 import comfy.sd
@@ -54,7 +54,6 @@ class CR_CycleModels:
 
         elif mode == "Sequential":
             if current_frame == 0:
-                print(f"[Info] CR Cycle Models: Initial model {model.name}")
                 return (model, clip) 
             else:    
                 # Calculate the index of the current model based on the current_frame and frame_interval
