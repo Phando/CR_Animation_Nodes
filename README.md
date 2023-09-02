@@ -5,14 +5,10 @@ These nodes include some features similar to Deforum, and also some new ideas.
 
 If you would like to contribute to this project with suggestions or feedback then please DM me on the AI Revolution discord, add feature requests on Gtithub, or leave a comment below.
 
-##CivitAI Posts
+## CivitAI Post
 [ComfyUI - CR Animation Nodes](https://civitai.com/models/137333/comfyui-cr-animation-nodes)
 
-[ComfyUI - CR Animation Nodes - Demo Workflows](https://civitai.com/articles/2001/comfyui-guide-to-cr-animation-nodes)
-
-[ComfyUI - Guide to CR Animation Nodes](https://civitai.com/articles/2001/comfyui-guide-to-cr-animation-nodes)
-
-##Example Videos
+## Example Videos
 These YouTube short videos were made by AI Music Experiment and made use of early versions of the nodes.
 
 [Cat Morph](https://www.youtube.com/shorts/kiSO-8i4RZ4)
@@ -21,6 +17,8 @@ These YouTube short videos were made by AI Music Experiment and made use of earl
 
 ## Demo Workflows
 Demo workflows will be available on CivitAI. These are designed to demonstrate how the nodes function. They are not full animation workflows. Full template workflows will be published when the project nears completion.
+
+[ComfyUI - CR Animation Nodes - Demo Workflows](https://civitai.com/models/138947/comfyui-cr-animation-nodes-demo-workflows)
 
 ## Recommended Downloads
 The following node packs are recommended for building workflows using these nodes:
@@ -45,7 +43,7 @@ These are the first 20 nodes. There are 35 nodes currently in development. It is
 
 Feedback on the new nodes is welcomed.
 
-# Prompt Keyframe Nodes
+## Prompt Keyframe Nodes
 CR Prompt List
 
 CR Prompt List Keyframes
@@ -58,7 +56,7 @@ CR Keyframe List
 
 CR Promp Text
 
-# List Nodes
+## List Nodes
 CR Model List
 
 CR LoRA List
