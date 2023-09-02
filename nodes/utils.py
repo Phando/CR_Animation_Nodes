@@ -1,6 +1,6 @@
 #---------------------------------------------------------------------------------------------------------------------#
-# CR Animation Nodes by RockOfFire and Akatsuzi                                         
-# for ComfyUI                                    https://github.com/comfyanonymous/ComfyUI
+# CR Animation Nodes by RockOfFire and Akatsuzi     https://github.com/RockOfFire/CR-Animation-Nodes                                    
+# for ComfyUI                                       https://github.com/comfyanonymous/ComfyUI
 #---------------------------------------------------------------------------------------------------------------------#
 #
 #---------------------------------------------------------------------------------------------------------------------#
@@ -117,8 +117,8 @@ class CR_CurrentFrame:
         return {"required":{
                     "index": ("INT", {"default": 1, "min": -10000, "max": 10000}),
                     "print_to_console": ([
-                                "On",
-                                "Off"],),
+                                "Yes",
+                                "No"],),
                     }
         }
 
@@ -127,8 +127,8 @@ class CR_CurrentFrame:
     FUNCTION = "to_console"
     CATEGORY = "CR Animation/Utils"
     
-    def to_console(self, index, ):
-        if print_to_console == "On":
+    def to_console(self, index, print_to_console):
+        if print_to_console == "Yes":
             print(f"[Info] CR Current Frame:{index}")
             
         return (index, )
