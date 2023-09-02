@@ -33,11 +33,11 @@ the CR Animation nodes were orginally based on nodes in this pack
 
 [Fizz Nodes](https://github.com/FizzleDorf/ComfyUI_FizzNodes)
 
-for the Prompt Scheduler
+- This is needed for the Prompt Scheduler
 
 [MTB](https://github.com/melMass/comfy_mtb)
 
-for the Animation Controller and several other nodes
+- This is needed for the Animation Builder and several other nodes
 
 ## Compatibility
 These nodes are designed to work with both Fizz Nodes and MTB Nodes. We are also looking at testing with Loopchain.
