@@ -27,9 +27,7 @@ Demo workflows will be available on CivitAI. These are designed to demonstrate h
 ## Recommended Downloads
 The following node packs are recommended for building workflows using these nodes:
 
-Comfyroll Custom Nodes
-
-the CR Animation nodes were orginally based on nodes in this pack
+[Comfyroll Custom Nodes](https://civitai.com/models/87609/comfyroll-custom-nodes-for-comfyui)
 
 [Fizz Nodes](https://github.com/FizzleDorf/ComfyUI_FizzNodes)
 
