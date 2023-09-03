@@ -107,7 +107,12 @@ A troubleshooting article will be added soon
 
 ![animation stack](https://github.com/RockOfFire/CR_Animation_Nodes/assets/42118269/eba4ff74-0223-4021-aed7-c8da63ece300)
 
+![Keyframe List](https://github.com/RockOfFire/CR_Animation_Nodes/assets/42118269/89b48df3-3c28-436e-84b2-e45952f8f873)
+
 **Cycler Nodes**
 
 ![Cyclers_05](https://github.com/RockOfFire/CR_Animation_Nodes/assets/42118269/961629d8-231b-4153-92fc-81b05b563d6b)
 
+**Interpolation Nodes**
+
+![Interpolations_02](https://github.com/RockOfFire/CR_Animation_Nodes/assets/42118269/6d97ab56-d393-42ce-a5c3-280b3572ceea)
