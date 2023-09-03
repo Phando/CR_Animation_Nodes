@@ -101,9 +101,13 @@ Please see this WIP CivitAIarticle for a guide to the new nodes
 A troubleshooting article will be added soon
 
 # Node Images
+**Prompt Keyframe Nodes**
 
 ![prompt list](https://github.com/RockOfFire/CR_Animation_Nodes/assets/42118269/e40a907e-268a-4b73-9c78-f2f1a15dc37d)
 
 ![animation stack](https://github.com/RockOfFire/CR_Animation_Nodes/assets/42118269/eba4ff74-0223-4021-aed7-c8da63ece300)
 
+**Cycler Nodes**
+
+![Cyclers_05](https://github.com/RockOfFire/CR_Animation_Nodes/assets/42118269/961629d8-231b-4153-92fc-81b05b563d6b)
 
