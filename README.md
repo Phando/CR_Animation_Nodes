@@ -93,7 +93,7 @@ CR Text List To String
 CR Current Frame
 
 # Overview of New Nodes
-Please see this WIP CivitAIarticle for a guide to the new nodes
+Please see this WIP CivitAI article for a guide to the new nodes
 
 [CR Animation Nodes Guide](https://civitai.com/articles/2001/comfyui-guide-to-cr-animation-nodes)
 
