@@ -40,7 +40,7 @@ The following node packs are recommended for building workflows using these node
 ## Compatibility
 These nodes are designed to work with both Fizz Nodes and MTB Nodes. We are also looking at testing with Loopchain.
 
-# List Of Nodes
+# List of Nodes
 These are the first 20 nodes. There are 35 nodes currently in development. It is planned to release these in multiple drops during September.
 
 Feedback on the new nodes is welcomed.
