@@ -121,14 +121,14 @@ A troubleshooting article will be added soon
 
 WASasquatch https://github.com/WASasquatch/was-node-suite-comfyui
 
-MTB https://github.com/melMass/comfy_mtb
+melMass https://github.com/melMass/comfy_mtb
 
-Fizz https://github.com/FizzleDorf/ComfyUI_FizzNodes
+FizzleDorf https://github.com/FizzleDorf/ComfyUI_FizzNodes
 
 SeargeDP https://github.com/SeargeDP/SeargeSDXL
 
 ltdrdata https://github.com/ltdrdata/ComfyUI-Impact-Pack
 
-LucianoCirino         https://github.com/LucianoCirino/efficiency-nodes-comfyui
+LucianoCirino https://github.com/LucianoCirino/efficiency-nodes-comfyui
 
-sylym                 https://github.com/sylym/comfy_vid2vid     
+sylym https://github.com/sylym/comfy_vid2vid     
