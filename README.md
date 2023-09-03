@@ -116,3 +116,19 @@ A troubleshooting article will be added soon
 **Interpolation Nodes**
 
 ![Interpolations_02](https://github.com/RockOfFire/CR_Animation_Nodes/assets/42118269/6d97ab56-d393-42ce-a5c3-280b3572ceea)
+
+# Credits
+
+WASasquatch https://github.com/WASasquatch/was-node-suite-comfyui
+
+MTB https://github.com/melMass/comfy_mtb
+
+Fizz https://github.com/FizzleDorf/ComfyUI_FizzNodes
+
+SeargeDP https://github.com/SeargeDP/SeargeSDXL
+
+ltdrdata https://github.com/ltdrdata/ComfyUI-Impact-Pack
+
+LucianoCirino         https://github.com/LucianoCirino/efficiency-nodes-comfyui
+
+sylym                 https://github.com/sylym/comfy_vid2vid     
