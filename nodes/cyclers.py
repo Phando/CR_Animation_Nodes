@@ -1,6 +1,6 @@
 #---------------------------------------------------------------------------------------------------------------------#
-# CR Animation Nodes by RockOfFire and Akatsuzi     https://github.com/RockOfFire/CR-Animation-Nodes                                       
-# for ComfyUI                                       https://github.com/comfyanonymous/ComfyUI
+# CR Animation Nodes by RockOfFire and Akatsuzi                                         
+# for ComfyUI                                    https://github.com/comfyanonymous/ComfyUI
 #---------------------------------------------------------------------------------------------------------------------#
 
 import comfy.sd
@@ -9,9 +9,17 @@ import os
 import sys
 import folder_paths
 import random
+from PIL import Image, ImageEnhance
+import matplotlib.pyplot as plt
+import numpy as np
+import io
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.realpath(__file__)), "comfy"))
-
+#---------------------------------------------------------------------------------------------------------------------# 
+# FUNCTIONS
+#---------------------------------------------------------------------------------------------------------------------# 
+def pil2tensor(image):
+    return torch.from_numpy(np.array(image).astype(np.float32) / 255.0).unsqueeze(0)
 #---------------------------------------------------------------------------------------------------------------------# 
 # NODES
 #---------------------------------------------------------------------------------------------------------------------# 
@@ -22,7 +30,6 @@ class CR_CycleModels:
     
         modes = ["Off", "Sequential"]
 
-    
         return {"required": {"mode": (modes,),
                              "model": ("MODEL",),
                              "clip": ("CLIP",),
@@ -36,7 +43,7 @@ class CR_CycleModels:
     RETURN_TYPES = ("MODEL", "CLIP", "VAE")
     RETURN_NAMES = ("MODEL", "CLIP", "VAE")
     FUNCTION = "cycle_models"
-    CATEGORY = "CR Animation/List"
+    CATEGORY = "CR Animation/Cyclers"
 
     def cycle_models(self, mode, model, clip, model_list, frame_interval, loops, current_frame,):
             
@@ -94,7 +101,7 @@ class CR_CycleLoRAs:
     RETURN_TYPES = ("MODEL", "CLIP", )
     RETURN_NAMES = ("MODEL", "CLIP", )
     FUNCTION = "cycle"
-    CATEGORY = "CR Animation/List"
+    CATEGORY = "CR Animation/Cyclers"
 
     def cycle(self, mode, model, clip, lora_list, frame_interval, loops, current_frame):
     
@@ -130,15 +137,127 @@ class CR_CycleLoRAs:
         else:
             return model, clip
 
+#---------------------------------------------------------------------------------------------------------------------#        
+class CR_CycleText:
+
+    @classmethod
+    def INPUT_TYPES(s):
+    
+        modes = ["Sequential"]
+    
+        return {"required": {"mode": (modes,),
+                             "text_list": ("TEXT_LIST",),
+                             "frame_interval": ("INT", {"default": 30, "min": 0, "max": 999, "step": 1,}),         
+                             "loops": ("INT", {"default": 1, "min": 1, "max": 1000}),
+                             "current_frame": ("INT", {"default": 0.0, "min": 0.0, "max": 9999.0, "step": 1.0,}),
+                },
+        }
+    
+    RETURN_TYPES = ("STRING", )
+    RETURN_NAMES = ("STRING", )
+    FUNCTION = "cycle_text"
+    CATEGORY = "CR Animation/Cyclers"
+
+    def cycle_text(self, mode, text_list, frame_interval, loops, current_frame,):
+        
+        # Initialize the list
+        text_params = list()
+
+        # Extend text_params with text_list items
+        if text_list:
+            for _ in range(loops):
+                text_params.extend(text_list)
+            #print(f"[Debug] CR Cycle Text:{text_params}")
+
+        if mode == "Sequential":
+            # Calculate the index of the current text string based on the current_frame and frame_interval
+            current_text_index = (current_frame // frame_interval) % len(text_params)
+            #print(f"[Debug] CR Cycle Text:{current_text_index}")
+
+            # Get the parameters of the current text            
+            current_text_params = text_params[current_text_index]
+            print(f"[Debug] CR Cycle Text:{current_text_params}")
+            text_alias, current_text_item = current_text_params            
+            #print(f"[Debug] CR Cycle Text:{current_text_item}")
+            
+            return (current_text_item,)            
+
+#---------------------------------------------------------------------------------------------------------------------#        
+class CR_CycleTextSimple:
+
+    @classmethod
+    def INPUT_TYPES(s):
+    
+        modes = ["Sequential"]
+    
+        return {"required": {"mode": (modes,),
+                             "frame_interval": ("INT", {"default": 30, "min": 0, "max": 999, "step": 1,}),         
+                             "loops": ("INT", {"default": 1, "min": 1, "max": 1000}),
+                             "current_frame": ("INT", {"default": 0.0, "min": 0.0, "max": 9999.0, "step": 1.0,}),
+                },
+                "optional": {"text_1": ("STRING", {"multiline": False, "default": ""}),
+                             "text_2": ("STRING", {"multiline": False, "default": ""}),
+                             "text_3": ("STRING", {"multiline": False, "default": ""}),
+                             "text_4": ("STRING", {"multiline": False, "default": ""}),               
+                             "text_5": ("STRING", {"multiline": False, "default": ""}),
+                             "text_list_simple": ("TEXT_LIST_SIMPLE",),
+                },                                           
+        }
+    
+    RETURN_TYPES = ("STRING", )
+    RETURN_NAMES = ("STRING", )
+    FUNCTION = "cycle_text"
+    CATEGORY = "CR Animation/Cyclers"
+
+    def cycle_text(self, mode, frame_interval, loops, current_frame,
+        text_1, text_2, text_3, text_4, text_5,
+        text_list_simple=None ):
+        
+        # Initialize the list
+        text_params = list()
+        
+        text_list = list() 
+        if text_1 != "":
+            text_list.append(text_1)
+        if text_2 != "":     
+            text_list.append(text_2)
+        if text_3 != "":             
+            text_list.append(text_3)
+        if text_4 != "":             
+            text_list.append(text_4)
+        if text_5 != "": 
+            text_list.append(text_5)
+        
+        # Extend text_params with text items
+        for _ in range(loops):
+            if text_list_simple:
+                text_params.extend(text_list_simple)
+            text_params.extend(text_list)     
+        #print(f"[Debug] CR Cycle Text:{len(text_params)}")
+        #print(f"[Debug] CR Cycle Text:{text_params}")
+        
+        if mode == "Sequential":
+            # Calculate the index of the current text string based on the current_frame and frame_interval
+            current_text_index = (current_frame // frame_interval) % len(text_params)
+            #print(f"[Debug] CR Cycle Text:{current_text_index}")
+
+            # Get the parameters of the current text            
+            current_text_item = text_params[current_text_index]          
+            #print(f"[Debug] CR Cycle Text
+            return (current_text_item,)
+          
 #---------------------------------------------------------------------------------------------------------------------#
 # MAPPINGS
 #---------------------------------------------------------------------------------------------------------------------#
 # For reference only, actual mappings are in __init__.py
-# 2 nodes
+# 4 nodes
 '''
 NODE_CLASS_MAPPINGS = {  
-    ### Cycle List
+    ### Cyclers
     "CR Cycle Models":CR_CycleModels,    
+    "CR Cycle LoRAs":CR_CycleLoRAs,
+    "CR Cycle Text":CR_CycleText,
+    "CR Cycle Text Simple":CR_CycleTextSimple,
 }
 '''
 
