@@ -63,6 +63,10 @@ CR Model List
 
 CR LoRA List
 
+CR Text List
+
+CR Text List Simple
+
 ## Gradient and Increment Nodes
 CR Gradient Float
 
@@ -77,6 +81,10 @@ CR Cycle Models
 
 CR Cycle LoRAs
 
+CR Cycle Text
+
+CR Cycle Text Simple
+
 ## Index Nodes
 CR Index Reset
 
@@ -84,7 +92,7 @@ CR Index increment
 
 CR Index Multiply
 
-##Utlity Nodes
+## Utlity Nodes
 
 CR Debatch Frames
 
@@ -112,6 +120,10 @@ A troubleshooting article will be added soon
 **Cycler Nodes**
 
 ![Cyclers_05](https://github.com/RockOfFire/CR_Animation_Nodes/assets/42118269/961629d8-231b-4153-92fc-81b05b563d6b)
+
+**Text Cycler Nodes**
+
+![text cyclers](https://github.com/RockOfFire/CR_Animation_Nodes/assets/42118269/4ba9f44d-3b67-4297-922a-38547289ffc8)
 
 **Interpolation Nodes**
 
