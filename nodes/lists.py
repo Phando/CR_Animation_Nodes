@@ -151,17 +151,136 @@ class CR_LoRAList:
         show_text = "".join(lora_text)
             
         return (loras, show_text, )
- 
+    
+#---------------------------------------------------------------------------------------------------------------------#
+class CR_TextList:
+
+    @classmethod
+    def INPUT_TYPES(cls):
+  
+        return {"required": {
+                    "text_1": ("STRING", {"multiline": False, "default": ""}),
+                    "alias1": ("STRING", {"multiline": False, "default": ""}),
+                    "text_2": ("STRING", {"multiline": False, "default": ""}),
+                    "alias2": ("STRING", {"multiline": False, "default": ""}),
+                    "text_3": ("STRING", {"multiline": False, "default": ""}),
+                    "alias3": ("STRING", {"multiline": False, "default": ""}),
+                    "text_4": ("STRING", {"multiline": False, "default": ""}),
+                    "alias4": ("STRING", {"multiline": False, "default": ""}),                    
+                    "text_5": ("STRING", {"multiline": False, "default": ""}),
+                    "alias5": ("STRING", {"multiline": False, "default": ""}),                    
+                },
+                "optional": {"text_list": ("text_LIST",)
+                },
+        }
+
+    RETURN_TYPES = ("TEXT_LIST", "STRING", )
+    RETURN_NAMES = ("TEXT_LIST", "show_text", )
+    FUNCTION = "text_list"
+    CATEGORY = "CR Animation/List"
+
+    def text_list(self, text_1, alias1, text_2, alias2, text_3, alias3, text_4, alias4, text_5, alias5, text_list=None):
+
+        # Initialise the list
+        texts = list()
+        showtext = list()
+        
+        # Extend the list for each text item in a connected list
+        if text_list is not None:
+            texts.extend([l for l in text_list])
+        
+        # Extend the list for each text item in the list
+        if text_1 != "":
+            text1_tup = [(alias1, text_1)]        
+            texts.extend(text1_tup),
+            showtext.extend([(alias1 + "," + text_1 + "\n")]),
+
+        if text_2 != "":
+            text2_tup = [(alias2, text_2)]        
+            texts.extend(text2_tup),
+            showtext.extend([(alias2 + "," + text_2 + "\n")]),
+
+        if text_3 != "":
+            text3_tup = [(alias3, text_3)]        
+            texts.extend(text3_tup),
+            showtext.extend([(alias3 + "," + text_3 + "\n")]),
+
+        if text_4 != "":
+            text4_tup = [(alias4, text_4)]        
+            texts.extend(text4_tup),
+            showtext.extend([(alias4 + "," + text_4 + "\n")]),
+            
+        if text_5 != "":
+            text5_tup = [(alias5, text_5)]        
+            texts.extend(text5_tup),
+            showtext.extend([(alias5 + "," + text_5 + "\n")]),
+            
+        #print(f"[Debug] CR Text List: {texts}")
+
+        show_text = "".join(showtext)
+            
+        return (texts, show_text, )
+
+#---------------------------------------------------------------------------------------------------------------------#
+class CR_TextListSimple:
+
+    @classmethod
+    def INPUT_TYPES(cls):
+  
+        return {"required": {            
+                },
+                "optional": {"text_1": ("STRING", {"multiline": False, "default": ""}),
+                             "text_2": ("STRING", {"multiline": False, "default": ""}),
+                             "text_3": ("STRING", {"multiline": False, "default": ""}),
+                             "text_4": ("STRING", {"multiline": False, "default": ""}),                    
+                             "text_5": ("STRING", {"multiline": False, "default": ""}),
+                             "text_list_simple": ("TEXT_LIST_SIMPLE",)
+                },
+        }
+
+    RETURN_TYPES = ("TEXT_LIST_SIMPLE", )
+    RETURN_NAMES = ("TEXT_LIST_SIMPLE", )
+    FUNCTION = "text_list_simple"
+    CATEGORY = "CR Animation/List"
+
+    def text_list_simple(self, text_1, text_2, text_3,  text_4, text_5, text_list_simple=None):
+
+        # Initialise the list
+        texts = list()
+        
+        # Extend the list for each text in the stack
+        if text_list_simple is not None:
+            texts.extend(l for l in text_list_simple)
+        
+        if text_1 != "" and text_1 != None:
+            texts.append(text_1),
+
+        if text_2 != "" and text_2 != None:
+            texts.append(text_2)
+
+        if text_3 != "" and text_3 != None:
+            texts.append(text_3)
+
+        if text_4 != "" and text_4 != None:
+            texts.append(text_4),
+            
+        if text_5 != "" and text_5 != None:
+            texts.append(text_5),
+            
+        return (texts,)
        
 #---------------------------------------------------------------------------------------------------------------------#
 # MAPPINGS
 #---------------------------------------------------------------------------------------------------------------------#
 # For reference only, actual mappings are in __init__.py
-# 2 nodes
+# 4 nodes
 '''
 NODE_CLASS_MAPPINGS = {
     ### Lists
     "CR Model List":CR_ModelList,
-    "CR LoRA List":CR_LoRAList,
+    "CR LoRA List":CR_LoRAList,    
+    "CR Text List":CR_TextList,
+    "CR Text List Simple":CR_TextListSimple,
+}
 '''
 
