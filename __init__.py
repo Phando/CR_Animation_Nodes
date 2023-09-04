@@ -1,6 +1,5 @@
-#from .CR_Animation_Nodes import *
 from .nodes.interpolation import *
-#from .nodes.io import *
+from .io import *
 from .nodes.prompt import *
 #from .nodes.schedulers import *
 from .nodes.lists import *
@@ -9,7 +8,7 @@ from .nodes.utils import *
 from .nodes.cyclers import *
 
 NODE_CLASS_MAPPINGS = {
-    ### Drop 1 - 12 nodes
+    ### Drop 4 - 25 nodes
     # Prompt Keyframes
     "CR Prompt List":CR_PromptList,
     "CR Prompt List Keyframes":CR_PromptListKeyframes,
@@ -25,9 +24,13 @@ NODE_CLASS_MAPPINGS = {
     ### Lists
     "CR Model List":CR_ModelList,
     "CR LoRA List":CR_LoRAList,
+    "CR Text List":CR_TextList,
+    "CR Text List Simple":CR_TextListSimple,    
     ### Cyclers
     "CR Cycle Models":CR_CycleModels,    
     "CR Cycle LoRAs":CR_CycleLoRAs,
+    "CR Cycle Text":CR_CycleText,
+    "CR Cycle Text Simple":CR_CycleTextSimple,     
     # Index
     "CR Index Increment":CR_IncrementIndex,
     "CR Index Multiply":CR_MultiplyIndex,
@@ -36,6 +39,8 @@ NODE_CLASS_MAPPINGS = {
     "CR Debatch Frames":CR_DebatchFrames,    
     "CR Text List To String":CR_TextListToString,    
     "CR Current Frame":CR_CurrentFrame,
+    # IO
+    "CR Load Animation Frames":CR_LoadAnimationFrames,
 }
 
 __all__ = ['NODE_CLASS_MAPPINGS']
