@@ -142,7 +142,7 @@ class CR_LoRAList:
             lora_text += "\n".join(map(str, lora2_tup)) + "\n"
 
         if lora_name3 != "None":
-            lora_tup3 = [(alias3, lora_name3, model_strength_3, clip_strength_3)]          
+            lora3_tup = [(alias3, lora_name3, model_strength_3, clip_strength_3)]          
             loras.extend(lora3_tup),        
             lora_text += "\n".join(map(str, lora3_tup)) + "\n"
            
