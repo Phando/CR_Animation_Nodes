@@ -1,6 +1,6 @@
 #---------------------------------------------------------------------------------------------------------------------#
-# CR Animation Nodes by RockOfFire and Akatsuzi                                         
-# for ComfyUI                                    https://github.com/comfyanonymous/ComfyUI
+# CR Animation Nodes by RockOfFire and Akatsuzi     https://github.com/RockOfFire/CR-Animation-Nodes
+# for ComfyUI                                       https://github.com/comfyanonymous/ComfyUI
 #---------------------------------------------------------------------------------------------------------------------#
 
 import comfy.sd
@@ -245,17 +245,122 @@ class CR_CycleTextSimple:
             current_text_item = text_params[current_text_index]          
             #print(f"[Debug] CR Cycle Text
             return (current_text_item,)
-          
+
+#---------------------------------------------------------------------------------------------------------------------#        
+class CR_CycleImages:
+
+    @classmethod
+    def INPUT_TYPES(s):
+    
+        modes = ["Sequential"]
+    
+        return {"required": {"mode": (modes,),
+                             "image_list": ("IMAGE_LIST",),
+                             "frame_interval": ("INT", {"default": 30, "min": 0, "max": 999, "step": 1,}),         
+                             "loops": ("INT", {"default": 1, "min": 1, "max": 1000}),
+                             "current_frame": ("INT", {"default": 0.0, "min": 0.0, "max": 9999.0, "step": 1.0,}),
+                },
+        }
+    
+    RETURN_TYPES = ("IMAGE", )
+    RETURN_NAMES = ("IMAGE", )
+    FUNCTION = "cycle"
+    CATEGORY = "CR Animation/Cyclers"
+
+    def cycle(self, mode, image_list, frame_interval, loops, current_frame,):
+    
+        # Initialize the list
+        image_params = list()
+
+        # Extend image_params with image_list items
+        if image_list:
+            for _ in range(loops):
+                image_params.extend(image_list)
+
+        if mode == "Sequential":
+            # Calculate the index of the current image string based on the current_frame and frame_interval
+            current_image_index = (current_frame // frame_interval) % len(image_params)
+            print(f"[Debug] CR Cycle Image:{current_image_index}")
+
+            # Get the parameters of the current image            
+            current_image_params = image_params[current_image_index]
+            image_alias, current_image_item = current_image_params            
+            
+            return (current_image_item,) 
+                
+#---------------------------------------------------------------------------------------------------------------------#        
+class CR_CycleImagesSimple:
+
+    @classmethod
+    def INPUT_TYPES(s):
+    
+        modes = ["Sequential"]
+    
+        return {"required": {"mode": (modes,),
+                             "frame_interval": ("INT", {"default": 30, "min": 0, "max": 999, "step": 1,}),         
+                             "loops": ("INT", {"default": 1, "min": 1, "max": 1000}),
+                             "current_frame": ("INT", {"default": 0.0, "min": 0.0, "max": 9999.0, "step": 1.0,})
+                },
+                "optional": {"image_1": ("IMAGE",),
+                             "image_2": ("IMAGE",),
+                             "image_3": ("IMAGE",),
+                             "image_4": ("IMAGE",),              
+                             "image_5": ("IMAGE",),
+                             "image_list_simple": ("IMAGE_LIST_SIMPLE",)
+                }                                           
+        }
+    
+    RETURN_TYPES = ("IMAGE", )
+    RETURN_NAMES = ("IMAGE", )
+    FUNCTION = "cycle_image"
+    CATEGORY = "CR Animation/Cyclers"
+
+    def cycle_image(self, mode, frame_interval, loops, current_frame,
+        image_1=None, image_2=None, image_3=None, image_4=None, image_5=None,
+        image_list_simple=None ):
+        
+        # Initialize the list
+        image_params = list()
+        
+        image_list = list()
+        if image_1 != None:        
+            image_list.append(image_1),
+        if image_2 != None: 
+            image_list.append(image_2),
+        if image_3 != None: 
+            image_list.append(image_3),
+        if image_4 != None: 
+            image_list.append(image_4),
+        if image_5 != None: 
+            image_list.append(image_5),
+        
+        # Extend image_params with image items
+        for _ in range(loops):
+            if image_list_simple:
+                image_params.extend(image_list_simple)
+            image_params.extend(image_list)     
+
+        if mode == "Sequential":
+            # Calculate the index of the current image string based on the current_frame and frame_interval
+            current_image_index = (current_frame // frame_interval) % len(image_params)
+            print(f"[Debug] CR Cycle Text:{current_image_index}")
+
+            # Get the parameters of the current image            
+            current_image_item = image_params[current_image_index]          
+            return (current_image_item,)
+              
 #---------------------------------------------------------------------------------------------------------------------#
 # MAPPINGS
 #---------------------------------------------------------------------------------------------------------------------#
 # For reference only, actual mappings are in __init__.py
-# 4 nodes
+# 6 nodes
 '''
 NODE_CLASS_MAPPINGS = {  
     ### Cyclers
     "CR Cycle Models":CR_CycleModels,    
     "CR Cycle LoRAs":CR_CycleLoRAs,
+    "CR Cycle Images":CR_CycleImages,
+    "CR Cycle Images":CR_CycleImagesSimple,
     "CR Cycle Text":CR_CycleText,
     "CR Cycle Text Simple":CR_CycleTextSimple,
 }
