@@ -1,6 +1,6 @@
 #---------------------------------------------------------------------------------------------------------------------#
-# CR Animation Nodes by RockOfFire and Akatsuzi              
-# for ComfyUI                                    https://github.com/comfyanonymous/ComfyUI 
+# CR Animation Nodes by RockOfFire and Akatsuzi   https://github.com/RockOfFire/CR-Animation-Nodes              
+# for ComfyUI                                     https://github.com/comfyanonymous/ComfyUI 
 #---------------------------------------------------------------------------------------------------------------------#
 
 import torch
@@ -48,7 +48,7 @@ class CR_GradientInteger:
         
         return (int_out,)
     
-#---------------------------------------------------------------------------------------------------------------------------------------------------#
+#---------------------------------------------------------------------------------------------------------------------#
 class CR_GradientFloat:
 
     @classmethod
@@ -152,7 +152,60 @@ class CR_IncrementInteger:
             return (current_value,)
                 
         return (current_value,)
- 
+         
+#---------------------------------------------------------------------------------------------------------------------#
+class CR_InterpolateLatents:
+
+    @classmethod
+    def INPUT_TYPES(cls):
+    
+        #interpolation_methods = ["lerp", "slerp"]
+        interpolation_methods = ["lerp"]
+        
+        return {
+            "required": {
+                "latent1": ("LATENT",),
+                "latent2": ("LATENT",),
+                "weight": ("FLOAT", {"default": 0.5, "min": 0.0, "max": 1.0, "step": 0.01}),
+                "method": (interpolation_methods,),
+            }
+        }
+
+    RETURN_TYPES = ("LATENT",)
+    RETURN_NAMES = ("LATENT",)
+    FUNCTION = "interpolate_latent"
+
+    CATEGORY = "CR Animation/Latent"
+
+    def interpolate_latent(self, latent1, latent2, weight, method):
+        a = latent1.copy()
+        b = latent2.copy()
+        c = {}
+        
+        if method == "lerp":
+        
+            torch.lerp(a["samples"], b["samples"], weight, out=a["samples"])
+            
+        elif method == "slerp":
+            
+            dot_products = torch.sum(latent1["samples"] * latent2["samples"], dim=(2, 3))
+            dot_products = torch.clamp(dot_products, -1, 1)  # Ensure dot products are within valid range
+
+            angles = torch.acos(dot_products)
+            sin_angles = torch.sin(angles)
+
+            weight1 = torch.sin((1 - weight) * angles) / sin_angles
+            weight2 = torch.sin(weight * angles) / sin_angles
+
+            # Broadcast weights to match latent samples dimensions
+            weight1 = weight1.unsqueeze(-1).unsqueeze(-1)
+            weight2 = weight2.unsqueeze(-1).unsqueeze(-1)
+
+            interpolated_samples = weight1 * latent1["samples"] + weight2 * latent2["samples"]
+            a["samples"] = interpolated_samples
+
+        return (a,)
+
 #---------------------------------------------------------------------------------------------------------------------#
 # MAPPINGS
 #---------------------------------------------------------------------------------------------------------------------#
@@ -164,6 +217,8 @@ class CR_IncrementInteger:
     "CR Gradient Integer":CR_GradientInteger,
     "CR Increment Float":CR_IncrementFloat,        
     "CR Increment Integer":CR_IncrementInteger,
+    # Latent
+    "CR Interpolate Latents":CR_InterpolateLatents,
 }
 '''
 
