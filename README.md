@@ -125,6 +125,10 @@ A troubleshooting article will be added soon
 
 ![text cyclers](https://github.com/RockOfFire/CR_Animation_Nodes/assets/42118269/4ba9f44d-3b67-4297-922a-38547289ffc8)
 
+**Image Cycler Nodes**
+
+![image cycler nodes](https://github.com/RockOfFire/CR_Animation_Nodes/assets/42118269/3bdfc5be-ab40-45a0-b3f0-8d7bad207c18)
+
 **Interpolation Nodes**
 
 ![Interpolations_02](https://github.com/RockOfFire/CR_Animation_Nodes/assets/42118269/6d97ab56-d393-42ce-a5c3-280b3572ceea)
