@@ -3,7 +3,7 @@ A comprehensive suite of nodes to enhance your animations
 
 These nodes include some features similar to Deforum, and also some new ideas.
 
-This is the first drop of 20 nodes. A further 35 nodes are currently in development. The next drop will include keyframe level schedulers.
+This is a beta release of the first 25 nodes. A further 35 nodes are currently in development. The next drops will include image cyclers and keyframe level schedulers.
 
 If you would like to contribute to this project with suggestions or feedback then please DM me on the AI Revolution discord, or add issues or feature requests here on Github.
 
@@ -99,6 +99,10 @@ CR Index Reset
 CR Index increment
 
 CR Index Multiply
+
+## IO Nodes
+
+CR Load Animation Frames
 
 ## Utlity Nodes
 
