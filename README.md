@@ -67,6 +67,10 @@ CR Text List
 
 CR Text List Simple
 
+CR Image List (in next drop)
+
+CR Image List Simple (in next drop)
+
 ## Gradient and Increment Nodes
 CR Gradient Float
 
@@ -84,6 +88,10 @@ CR Cycle LoRAs
 CR Cycle Text
 
 CR Cycle Text Simple
+
+CR Cycle Images (in next drop)
+
+CR Cycle Images Simple (in next drop)
 
 ## Index Nodes
 CR Index Reset
