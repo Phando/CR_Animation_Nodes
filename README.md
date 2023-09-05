@@ -146,6 +146,10 @@ A troubleshooting article will be added soon
 
 ![Interpolations_02](https://github.com/RockOfFire/CR_Animation_Nodes/assets/42118269/6d97ab56-d393-42ce-a5c3-280b3572ceea)
 
+**IO Nodes**
+
+![load anim frames](https://github.com/RockOfFire/CR_Animation_Nodes/assets/42118269/082a657e-26da-4d86-ac6a-e48f80ded288)
+
 # Credits
 
 WASasquatch https://github.com/WASasquatch/was-node-suite-comfyui
