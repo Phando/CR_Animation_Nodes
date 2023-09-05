@@ -67,9 +67,9 @@ CR Text List
 
 CR Text List Simple
 
-CR Image List (in next drop)
+CR Image List
 
-CR Image List Simple (in next drop)
+CR Image List Simple
 
 ## Gradient and Increment Nodes
 CR Gradient Float
@@ -89,9 +89,9 @@ CR Cycle Text
 
 CR Cycle Text Simple
 
-CR Cycle Images (in next drop)
+CR Cycle Images
 
-CR Cycle Images Simple (in next drop)
+CR Cycle Images Simple
 
 ## Index Nodes
 CR Index Reset
@@ -100,12 +100,13 @@ CR Index increment
 
 CR Index Multiply
 
-## IO Nodes
+## Latent Nodes
+CR Interpolate Latents
 
+## IO Nodes
 CR Load Animation Frames
 
 ## Utlity Nodes
-
 CR Debatch Frames
 
 CR Text List To String
