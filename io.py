@@ -1,6 +1,6 @@
 #---------------------------------------------------------------------------------------------------------------------#
-# CR Animation Nodes by RockOfFire and Akatsuzi
-# for ComfyUI                                    https://github.com/comfyanonymous/ComfyUI
+# CR Animation Nodes by RockOfFire and Akatsuzi   https://github.com/RockOfFire/CR-Animation-Nodes
+# for ComfyUI                                     https://github.com/comfyanonymous/ComfyUI
 #---------------------------------------------------------------------------------------------------------------------#
 
 from PIL import Image, ImageSequence
@@ -43,8 +43,8 @@ class CR_LoadAnimationFrames:
 
     CATEGORY = "CR Animation/IO"
 
-    RETURN_TYPES = ("IMAGE", "MASK", "INT")
-    RETURN_NAMES = ("frames", "masks", "index")
+    RETURN_TYPES = ("IMAGE",)
+    RETURN_NAMES = ("IMAGE",)
     FUNCTION = "load_image_sequence"
 
     def load_image_sequence(self, image_sequence_folder, start_index, max_frames):
@@ -59,15 +59,9 @@ class CR_LoadAnimationFrames:
             image = np.array(image).astype(np.float32) / 255.0
             image = torch.from_numpy(image)[None,]
             image = image.squeeze()
-            if 'A' in i.getbands():
-                mask = np.array(i.getchannel('A')).astype(np.float32) / 255.0
-                mask = 1. - torch.from_numpy(mask)
-            else:
-                mask = torch.zeros((64, 64), dtype=torch.float32, device="cpu")
             sample_frames.append(image)
-            sample_frames_mask.append(mask)
-        return (torch.stack(sample_frames), sample_frames_mask)
-
+        return (torch.stack(sample_frames),)
+        
 #---------------------------------------------------------------------------------------------------------------------#
 # MAPPINGS
 #---------------------------------------------------------------------------------------------------------------------#
