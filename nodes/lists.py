@@ -1,6 +1,6 @@
 #---------------------------------------------------------------------------------------------------------------------#
-# CR Animation Nodes by RockOfFire and Akatsuzi                                         
-# for ComfyUI                                    https://github.com/comfyanonymous/ComfyUI
+# CR Animation Nodes by RockOfFire and Akatsuzi     https://github.com/RockOfFire/CR-Animation-Nodes
+# for ComfyUI                                       https://github.com/comfyanonymous/ComfyUI
 #---------------------------------------------------------------------------------------------------------------------#
 
 import comfy.sd
@@ -268,19 +268,132 @@ class CR_TextListSimple:
             texts.append(text_5),
             
         return (texts,)
-       
+ 
+#---------------------------------------------------------------------------------------------------------------------#
+class CR_ImageList:
+
+    @classmethod
+    def INPUT_TYPES(cls):
+    
+        return {"required": {
+                },
+                "optional": {"image_1": ("IMAGE",),
+                             "alias1": ("STRING", {"multiline": False, "default": ""}),
+                             "image_2": ("IMAGE",),
+                             "alias2": ("STRING", {"multiline": False, "default": ""}),
+                             "image_3": ("IMAGE",),
+                             "alias3": ("STRING", {"multiline": False, "default": ""}),
+                             "image_4": ("IMAGE",),
+                             "alias4": ("STRING", {"multiline": False, "default": ""}),                    
+                             "image_5": ("IMAGE",),
+                             "alias5": ("STRING", {"multiline": False, "default": ""}),
+                             "image_list": ("image_LIST",)
+                },
+        }
+
+    RETURN_TYPES = ("IMAGE_LIST", )
+    RETURN_NAMES = ("IMAGE_LIST", )
+    FUNCTION = "image_list"
+    CATEGORY = "CR Animation/List"
+
+    def image_list(self,
+        image_1=None, alias1=None,
+        image_2=None, alias2=None,
+        image_3=None, alias3=None,
+        image_4=None, alias4=None,
+        image_5=None, alias5=None,
+        image_list=None):
+
+        # Initialise the list
+        images = list()
+        
+        # Extend the list for each image in the stack
+        if image_list is not None:
+            image_tup = [(alias1, image_1)] 
+            images.extend([l for l in image_list])
+        
+        if image_1 != None:
+            images.extend([(alias1, image_1)]),
+
+        if image_2 != None:
+            images.extend([(alias2, image_2)]), 
+
+        if image_3 != None:
+            images.extend([(alias3, image_3)]),           
+
+        if image_4 != None:
+            images.extend([(alias4, image_4)]), 
+            
+        if image_5 != None:
+            images.extend([(alias5, image_5)]),
+            
+        return (images, )   
+
+
+#---------------------------------------------------------------------------------------------------------------------#
+class CR_ImageListSimple:
+
+    @classmethod
+    def INPUT_TYPES(cls):
+  
+        return {"required": {
+                },
+                "optional": {"image_1": ("IMAGE",),
+                             "image_2": ("IMAGE",),
+                             "image_3": ("IMAGE",),
+                             "image_4": ("IMAGE",),                    
+                             "image_5": ("IMAGE",),  
+                             "image_list_simple": ("IMAGE_LIST_SIMPLE",)
+                },
+        }
+
+    RETURN_TYPES = ("IMAGE_LIST_SIMPLE", )
+    RETURN_NAMES = ("IMAGE_LIST_SIMPLE", )
+    FUNCTION = "image_list_simple"
+    CATEGORY = "CR Animation/List"
+
+    def image_list_simple(self,
+        image_1=None, image_2=None, image_3=None,  image_4=None, image_5=None,
+        image_list_simple=None):
+
+        # Initialise the list
+        images = list()
+        
+        # Extend the list for each image in the stack
+        if image_list_simple is not None:
+            images.append(l for l in image_list_simple)
+        
+        if image_1 != None:
+            images.append(image_1),
+
+        if image_2 != None:
+            images.append(image_2)
+
+        if image_3 != None:
+            images.append(image_3)
+
+        if image_4 != None:
+            images.append(image_4),
+            
+        if image_5 != None:
+            images.append(image_5),
+            
+        return (images,)
+      
 #---------------------------------------------------------------------------------------------------------------------#
 # MAPPINGS
 #---------------------------------------------------------------------------------------------------------------------#
 # For reference only, actual mappings are in __init__.py
-# 4 nodes
+# 6 nodes
 '''
 NODE_CLASS_MAPPINGS = {
     ### Lists
     "CR Model List":CR_ModelList,
-    "CR LoRA List":CR_LoRAList,    
+    "CR LoRA List":CR_LoRAList,     
     "CR Text List":CR_TextList,
     "CR Text List Simple":CR_TextListSimple,
+    "CR Image List":CR_ImageList,    
+    "CR Image List Simple":CR_ImageListSimple, 
 }
 '''
 
